@@ -36,6 +36,8 @@ STARTUP NOMOUNT;
 
 CREATE SPFILE FROM PFILE;
 
+ALTER SYSTEM SET AUDIT_TRAIL=none;
+
 SHUTDOWN ABORT;
 
 STARTUP NOMOUNT;
@@ -71,15 +73,11 @@ CREATE DATABASE XE
       DATAFILE '${ORACLE_BASE}/oradata/XE/data/usertbs01.dbf'
       SIZE 8M REUSE AUTOEXTEND ON MAXSIZE UNLIMITED;
 
-spool /dev/null
-
 @?/rdbms/admin/catalog.sql
 
 @?/rdbms/admin/catproc.sql
 
 @?/sqlplus/admin/pupbld.sql
-
-spool off;
 
 CREATE UNDO TABLESPACE undotbs1
       DATAFILE '/opt/oracle/oradata/XE/data/undotbs01.dbf'
@@ -93,3 +91,6 @@ SHUTDOWN ABORT;
 
 EXIT;
 EOF
+
+# Clean up the audit logs we don't need
+rm ${ORACLE_HOME}/rdbms/audit/*

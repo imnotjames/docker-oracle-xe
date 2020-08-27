@@ -25,15 +25,6 @@ if [ ! -d "/opt/oracle/oradata/XE" ]; then
 fi
 
 # Start database
-echo "Starting Oracle Net Listener."
-runuser oracle -c "${ORACLE_HOME}/bin/lsnrctl start LISTENER" > /dev/null 2>&1
-
-RETVAL=$?
-if [ $RETVAL -eq 0 ]
-then
-    echo "Oracle Net Listener started."
-fi
-
 echo "Starting Oracle Database instance $ORACLE_SID."
 runuser oracle -c "${ORACLE_HOME}/bin/sqlplus / as sysdba" << EOF > /dev/null 2>&1
 startup
@@ -45,6 +36,15 @@ RETVAL1=$?
 if [ $RETVAL1 -eq 0 ]
 then
     echo "Oracle Database instance $ORACLE_SID started."
+fi
+
+echo "Starting Oracle Net Listener."
+runuser oracle -c "${ORACLE_HOME}/bin/lsnrctl start LISTENER" > /dev/null 2>&1
+
+RETVAL=$?
+if [ $RETVAL -eq 0 ]
+then
+    echo "Oracle Net Listener started."
 fi
 
 tail -f ${ORACLE_BASE}/oradata/diag/rdbms/*/*/trace/alert*.log &

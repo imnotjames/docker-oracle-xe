@@ -36,13 +36,13 @@ rm -rf /opt/oracle/product/18c/dbhomeXE/demo
 rm -rf /opt/oracle/product/18c/dbhomeXE/dmu
 rm -rf /opt/oracle/product/18c/dbhomeXE/install
 rm -rf /opt/oracle/product/18c/dbhomeXE/installclient
+rm -rf /opt/oracle/product/18c/dbhomeXE/instantclient
 rm -rf /opt/oracle/product/18c/dbhomeXE/inventory
 rm -rf /opt/oracle/product/18c/dbhomeXE/javavm
 rm -rf /opt/oracle/product/18c/dbhomeXE/jdbc
 rm -rf /opt/oracle/product/18c/dbhomeXE/jdk
 rm -rf /opt/oracle/product/18c/dbhomeXE/jlib
 rm -rf /opt/oracle/product/18c/dbhomeXE/md
-# rm -rf /opt/oracle/product/18c/dbhomeXE/network
 rm -rf /opt/oracle/product/18c/dbhomeXE/odbc
 rm -rf /opt/oracle/product/18c/dbhomeXE/ord
 rm -rf /opt/oracle/product/18c/dbhomeXE/oui

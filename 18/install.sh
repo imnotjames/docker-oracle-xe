@@ -6,7 +6,7 @@ if [ ! -f ${ORACLE_XE_RPM} ]; then
     || exit 1
 fi
 
-yum install -q -y \
+yum install -d1 -q -y \
   bc compat-libcap1 compat-libstdc++-33 libaio libstdc++ \
   pam procps psmisc sysstat utillinux
 
@@ -14,7 +14,7 @@ if [ $? -gt 1 ]; then
   exit 1
 fi
 
-rpm -Uvh --nodeps ${ORACLE_XE_RPM}
+rpm -Uv --nodeps ${ORACLE_XE_RPM}
 
 if [ $? -gt 1 ]; then
   exit 1

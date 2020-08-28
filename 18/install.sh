@@ -7,7 +7,7 @@ if [ ! -f ${ORACLE_XE_RPM} ]; then
 fi
 
 yum install -d1 -q -y \
-  bc compat-libcap1 compat-libstdc++-33 libaio libstdc++ \
+  bc compat-libcap1 compat-libstdc++-33 file libaio libstdc++ \
   pam procps psmisc sysstat utillinux
 
 if [ $? -gt 1 ]; then

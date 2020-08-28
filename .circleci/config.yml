@@ -13,7 +13,7 @@ jobs:
         type: string
         default: ""
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: docker:19
     steps:
       - checkout
       - setup_remote_docker

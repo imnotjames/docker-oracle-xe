@@ -2,7 +2,7 @@
 # Only download the OracleDB RPM if it's not there
 # It's possible that this was injected as part of the docker build
 if [ ! -f ${ORACLE_XE_RPM} ]; then
-  curl -fL ${ORACLE_XE_RPM_URL} -o ${ORACLE_XE_RPM} \
+  curl -sSfL ${ORACLE_XE_RPM_URL} -o ${ORACLE_XE_RPM} \
     || exit 1
 fi
 
